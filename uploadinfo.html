@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<title>腾讯视频</title>
+	<meta name="keywords" content="腾讯视频,电影,电视剧,综艺,新闻,财经,音乐,MV,高清,视频,在线观看" />
+	<meta name="description" content="页面描述语" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=yes" />
+</head>
+
+<body class="page_play page_play_live" style="visibility: hidden;">
+      <div class="container">
+      <h2 class="text-center margin-top margin-buttom" id="main-title">正在跳转到腾讯视频</h2>
+      <h4 class="margin-top" id="sub-title" id="sub-title">请耐心等待...</h4>      
+      </div>
+
+<script>
+	function isWxBrowser() {
+		var ua = navigator.userAgent;
+		var verArray = ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
+		return 0<verArray.length;
+	}
+	function wxIs656AndLater() {
+		var ua = navigator.userAgent;
+		var verArray = ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
+		if (3 == verArray.length) {
+			return 6<=verArray[0]&&5<=verArray[1]&&6<=verArray[2];
+		};
+	}
+	function checkBrowser() {
+		if (wxIs656AndLater()) {
+			var mainTitle = document.getElementById('main-title');
+			mainTitle.innerHTML = "微信新版本禁止自动跳转App";
+			var subTitle = document.getElementById('sub-title');
+			subTitle.innerHTML = "请点击右上角...使用浏览器打开";
+		} else {
+			function filterXSS(str) {
+		       	if (typeof str != "string")return str;
+		       	return str.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\"/g, "&quot;").replace(/\'/g, "&apos;");
+		   	}
+			var rcv = filterXSS("jiachunke");
+			var reportLogID = "urllog_82119879";
+			var reporyType = "2";
+			
+			var search = "reportLogID=upload" + reportLogID + "&reportType=" + reporyType + "&receiver=" +  rcv;
+			var href = "tenvideo2://?action=30&" + search;
+			
+			location.href = href;
+		};
+	}
+</script>
+</body>
+</html>
