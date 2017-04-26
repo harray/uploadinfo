@@ -37,18 +37,20 @@
 			var ua = navigator.userAgent;
 			var verArray = ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
 			alert(verArray);
-			if (3 == verArray.length) {
-				return 6<=verArray[0]&&5<=verArray[1]&&6<=verArray[2];
-			};
+			if (5 == verArray.length) {
+				// 如果完整匹配应当类似[ MicroMessenger/6.5.6,6.5,6,5,6 ]由完整匹配到局部匹配
+				return 6<=verArray[2]&&5<=verArray[3]&&6<=verArray[4];
+			} else {
+				return true;
+			}
 		}
 		function jumpToApp() {
-			if (isWxBrowser()) {
+			if (wxIs656AndLater()) {
 				var mainTitle = document.getElementById('main-title');
-				mainTitle.innerHTML = "微信新版已禁止自动跳转。。";
+				mainTitle.innerHTML = "如果没有自动跳转。。";
 				var subTitle = document.getElementById('sub-title');
 				subTitle.innerHTML = "请点击右上角'...'使用浏览器打开";
 			} else {
-				alert("start");
 				function filterXSS(str) {
 			       	if (typeof str != "string")return str;
 			       	return str.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\"/g, "&quot;").replace(/\'/g, "&apos;");
@@ -56,10 +58,8 @@
 				var rcv = filterXSS("jiachunke");
 				var reportLogID = "urllog_82119879";
 				var reporyType = "2";
-				alert(rcv);
 				var search = "reportLogID=upload" + reportLogID + "&reportType=" + reporyType + "&receiver=" +  rcv;
 				var href = "tenvideo2://?action=30&" + search;
-				alert(href);
 				location.href = href;
 			};
 		}
