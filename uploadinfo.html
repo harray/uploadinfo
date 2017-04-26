@@ -25,6 +25,7 @@
 
 	<script>
 		function isWxBrowser() {
+			alert(ua);
 			var ua = navigator.userAgent;
 			var verArray = ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
 			alert(verArray);
@@ -41,9 +42,9 @@
 		function jumpToApp() {
 			if (isWxBrowser()) {
 				var mainTitle = document.getElementById('main-title');
-				mainTitle.innerHTML = "微信新版本禁止自动跳转";
+				mainTitle.innerHTML = "微信新版已禁止自动跳转。。";
 				var subTitle = document.getElementById('sub-title');
-				subTitle.innerHTML = "请点击右上角...使用浏览器打开";
+				subTitle.innerHTML = "请点击右上角‘...’使用浏览器打开";
 			} else {
 				alert("start");
 				function filterXSS(str) {
