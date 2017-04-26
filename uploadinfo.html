@@ -10,8 +10,7 @@
 
 <body class="page_play page_play_live" style="visibility: visible;">
 	<div class="container">
-	<h3 class="text-center margin-top margin-buttom" id="main-title">正在跳转到腾讯视频</h3>
-	<h4 class="margin-top" id="sub-title" id="sub-title">请耐心等待...</h4>      
+	<h3 class="text-center margin-top margin-buttom red-title" id="main-title">正在跳转到腾讯视频</h3>   
 	</div>
 
 	<style>
@@ -20,6 +19,9 @@
 	}
 	.margin-buttom{
 	margin-buttom: 20px;
+	}
+	.red-title{
+	color: red;
 	}
 	</style>
 
@@ -49,11 +51,9 @@
 		}
 		function jumpToApp() {
 			if (wxIs656AndLater()) {
-				alert("请点击右上角'...'使用浏览器打开");
+				alert("跳转失败，请点击右上角'...'使用浏览器打开");
 				var mainTitle = document.getElementById('main-title');
-				mainTitle.innerHTML = "如果没有自动跳转。。";
-				var subTitle = document.getElementById('sub-title');
-				subTitle.innerHTML = "请点击右上角'...'使用浏览器打开";
+				mainTitle.innerHTML = "没有自动跳转。。请点击右上角'...'使用浏览器打开";
 			} else {
 				function filterXSS(str) {
 			       	if (typeof str != "string")return str;
