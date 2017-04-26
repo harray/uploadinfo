@@ -27,6 +27,7 @@
 		function isWxBrowser() {
 			var ua = navigator.userAgent;
 			var verArray = ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
+			alert(verArray);
 			return 0<verArray.length;
 		}
 		function wxIs656AndLater() {
