@@ -28,7 +28,7 @@
 			var ua = navigator.userAgent;
 			var verArray = ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
 			alert(verArray);
-			return 0<verArray.length;
+			return verArray;
 		}
 		function wxIs656AndLater() {
 			var ua = navigator.userAgent;
