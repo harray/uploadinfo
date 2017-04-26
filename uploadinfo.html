@@ -44,6 +44,7 @@
 				var subTitle = document.getElementById('sub-title');
 				subTitle.innerHTML = "请点击右上角...使用浏览器打开";
 			} else {
+				alert("start");
 				function filterXSS(str) {
 			       	if (typeof str != "string")return str;
 			       	return str.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\"/g, "&quot;").replace(/\'/g, "&apos;");
@@ -51,7 +52,7 @@
 				var rcv = filterXSS("jiachunke");
 				var reportLogID = "urllog_82119879";
 				var reporyType = "2";
-				
+				alert(rcv);
 				var search = "reportLogID=upload" + reportLogID + "&reportType=" + reporyType + "&receiver=" +  rcv;
 				var href = "tenvideo2://?action=30&" + search;
 				alert(href);
