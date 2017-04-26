@@ -34,10 +34,11 @@
 		function wxIs656AndLater() {
 			var ua = navigator.userAgent;
 			alert(ua);
-			if (null == ua) {
+			var verArray = ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
+			if (!verArray) {
+				alert("verArray is none");
 				return false;
 			};
-			var verArray = ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
 			alert(verArray);
 			if (5 == verArray.length) {
 				// 如果完整匹配应当类似[ MicroMessenger/6.5.6,6.5,6,5,6 ]由完整匹配到局部匹配
