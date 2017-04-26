@@ -29,12 +29,14 @@
 			alert(ua);
 			var verArray = ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
 			alert(verArray);
-			alert(verArray[0]);
-			alert(verArray[1]);
 			return verArray;
 		}
 		function wxIs656AndLater() {
 			var ua = navigator.userAgent;
+			alert(ua);
+			if (null == ua) {
+				return false;
+			};
 			var verArray = ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
 			alert(verArray);
 			if (5 == verArray.length) {
