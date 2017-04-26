@@ -38,7 +38,7 @@
 			};
 		}
 		function jumpToApp() {
-			if (wxIs656AndLater()) {
+			if (isWxBrowser()) {
 				var mainTitle = document.getElementById('main-title');
 				mainTitle.innerHTML = "微信新版本禁止自动跳转App";
 				var subTitle = document.getElementById('sub-title');
