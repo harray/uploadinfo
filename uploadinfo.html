@@ -32,6 +32,7 @@
 		function wxIs656AndLater() {
 			var ua = navigator.userAgent;
 			var verArray = ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
+			alert(verArray);
 			if (3 == verArray.length) {
 				return 6<=verArray[0]&&5<=verArray[1]&&6<=verArray[2];
 			};
