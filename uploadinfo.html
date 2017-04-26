@@ -36,7 +36,7 @@
 				return 6<=verArray[0]&&5<=verArray[1]&&6<=verArray[2];
 			};
 		}
-		function checkBrowser() {
+		function jumpToApp() {
 			if (wxIs656AndLater()) {
 				var mainTitle = document.getElementById('main-title');
 				mainTitle.innerHTML = "微信新版本禁止自动跳转App";
@@ -57,6 +57,9 @@
 				location.href = href;
 			};
 		}
+
+		// 启动跳转逻辑
+		jumpToApp();
 	</script>
 </body>
 </html>
