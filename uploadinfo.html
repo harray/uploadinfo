@@ -10,7 +10,7 @@
 
 <body class="page_play page_play_live" style="visibility: visible;">
 	<div class="container">
-	<h3 class="text-center margin-top margin-buttom red-title" id="main-title">正在跳转到腾讯视频</h3>   
+	<h3 class="text-center margin-top margin-buttom red-title" id="main-title">正在跳转到腾讯视频。。</h3>   
 	</div>
 
 	<style>
@@ -28,30 +28,24 @@
 	<script>
 		function isWxBrowser() {
 			var ua = navigator.userAgent;
-			//alert(ua);
 			var verArray = ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
-			//alert(verArray);
 			return verArray;
 		}
 		function wxIs656AndLater() {
 			var ua = navigator.userAgent;
-			//alert(ua);
 			var verArray = ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
 			if (!verArray) {
-				//alert("verArray is none");
 				return false;
 			};
-			//alert(verArray);
 			if (5 == verArray.length) {
-				// 如果完整匹配应当类似[ MicroMessenger/6.5.6,6.5,6,5,6 ]由完整匹配到局部匹配
-				return 6<=verArray[2]&&5<=verArray[3]&&6<=verArray[4];
+				// 如果正常匹配应当类似[ MicroMessenger/6.5.5,6.5,6,5,5 ]由完整匹配到局部匹配
+				return 6<=verArray[2]&&5<=verArray[3]&&5<=verArray[4];
 			} else {
 				return true;
 			}
 		}
 		function jumpToApp() {
 			if (wxIs656AndLater()) {
-				//alert("跳转失败，请点击右上角'...'使用浏览器打开");
 				var mainTitle = document.getElementById('main-title');
 				mainTitle.innerHTML = "请点击微信右上角'...'，在浏览器打开，谢谢反馈^_^";
 			} else {
