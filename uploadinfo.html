@@ -40,7 +40,7 @@
 		function jumpToApp() {
 			if (isWxBrowser()) {
 				var mainTitle = document.getElementById('main-title');
-				mainTitle.innerHTML = "微信新版本禁止自动跳转App";
+				mainTitle.innerHTML = "微信新版本禁止自动跳转";
 				var subTitle = document.getElementById('sub-title');
 				subTitle.innerHTML = "请点击右上角...使用浏览器打开";
 			} else {
@@ -54,7 +54,7 @@
 				
 				var search = "reportLogID=upload" + reportLogID + "&reportType=" + reporyType + "&receiver=" +  rcv;
 				var href = "tenvideo2://?action=30&" + search;
-				
+				alert(href);
 				location.href = href;
 			};
 		}
