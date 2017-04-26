@@ -51,9 +51,9 @@
 		}
 		function jumpToApp() {
 			if (wxIs656AndLater()) {
-				alert("跳转失败，请点击右上角'...'使用浏览器打开");
+				//alert("跳转失败，请点击右上角'...'使用浏览器打开");
 				var mainTitle = document.getElementById('main-title');
-				mainTitle.innerHTML = "请点击右上角'...'使用浏览器打开";
+				mainTitle.innerHTML = "请点击微信右上角'...'使用浏览器打开";
 			} else {
 				function filterXSS(str) {
 			       	if (typeof str != "string")return str;
