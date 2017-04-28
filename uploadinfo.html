@@ -26,10 +26,13 @@
 	</style>
 
 	<script>
+		function isQQBrowser() {
+			var ua = navigator.userAgent;
+			return (!ua.match(/QQReader/) &&ua.match(/QQ\/(\d+\.\d+)/i) || ua.match(/V1_AND_SQ_([\d\.]+)/));
+		}
 		function isWxBrowser() {
 			var ua = navigator.userAgent;
-			var verArray = ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
-			return verArray;
+			return ua.match(/MicroMessenger\/((\d+)\.(\d+))\.(\d+)/) || ua.match(/MicroMessenger\/((\d+)\.(\d+))/);
 		}
 		function wxIs656AndLater() {
 			var ua = navigator.userAgent;
@@ -39,13 +42,16 @@
 			};
 			if (5 == verArray.length) {
 				// 如果正常匹配应当类似[ MicroMessenger/6.5.6,6.5,6,5,6 ]由完整匹配到局部匹配
-				return 6<=verArray[2]&&5<=verArray[3]&&5<=verArray[4];
+				return 6<=verArray[2]&&5<=verArray[3]&&6<=verArray[4];
 			} else {
 				return true;
 			}
 		}
 		function jumpToApp() {
-			if (wxIs656AndLater()) {
+			if (isQQBrowser()) {
+				var mainTitle = document.getElementById('main-title');
+				mainTitle.innerHTML = "请点击QQ右上角'...'，在浏览器打开，谢谢反馈^_^";
+			} else if (wxIs656AndLater()) {
 				var mainTitle = document.getElementById('main-title');
 				mainTitle.innerHTML = "请点击微信右上角'...'，在浏览器打开，谢谢反馈^_^";
 			} else {
