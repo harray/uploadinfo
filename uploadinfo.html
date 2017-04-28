@@ -50,10 +50,10 @@
 		function jumpToApp() {
 			if (isQQBrowser()) {
 				var mainTitle = document.getElementById('main-title');
-				mainTitle.innerHTML = "请点击QQ右上角'...'，在浏览器打开，谢谢反馈^_^";
+				mainTitle.innerHTML = "请点击QQ右上角分享按钮，拉起面板，在浏览器打开，谢谢反馈^_^";
 			} else if (wxIs656AndLater()) {
 				var mainTitle = document.getElementById('main-title');
-				mainTitle.innerHTML = "请点击微信右上角'...'，在浏览器打开，谢谢反馈^_^";
+				mainTitle.innerHTML = "请点击微信右上角'...'，拉起面板，在浏览器打开，谢谢反馈^_^";
 			} else {
 				function filterXSS(str) {
 			       	if (typeof str != "string")return str;
